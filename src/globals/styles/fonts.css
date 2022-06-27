@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "visbyRoundCF";
+  font-weight: 600;
+  src: local("VisbyRoundCF-DemiBold"), url("../fonts/VisbyRoundCF-DemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "visbyRoundCF";
+  font-weight: 900;
+  src: local("VisbyRoundCF-Heavy"), url("../fonts/VisbyRoundCF-Heavy.woff") format("woff");
+}
