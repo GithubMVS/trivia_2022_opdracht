@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <div className={styles.container_full}>
-        <p>test</p>
+        <p className={styles.title}>Quiz Varia 2022</p>
       </div>
     </>
   );

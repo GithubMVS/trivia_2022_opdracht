@@ -1,5 +1,16 @@
-.container_full{
+.container_full {
   height: 100vh;
   width: 100vw;
   background-color: var(--purpleDark);
+}
+
+.title {
+  font-size: 7.5rem;
+  color: var(--colorWhite);
+  display: flex;
+  justify-content: center;
+  font-family: visbyRoundCF;
+  font-weight: 900;
+  width: 100%;
+  padding: 6.5rem 0rem 8rem 0rem;
 }
