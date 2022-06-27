@@ -2,6 +2,7 @@
   height: 100vh;
   width: 100vw;
   background-color: var(--purpleDark);
+  z-index: 2000;
 }
 
 .title {
@@ -12,5 +13,55 @@
   font-family: visbyRoundCF;
   font-weight: 900;
   width: 100%;
-  padding: 6.5rem 0rem 8rem 0rem;
+  padding: 6.5rem 0rem;
+}
+
+.absolute {
+  position: absolute;
+  z-index: 1;
+}
+
+.behind {
+  position: absolute;
+  top: 65%;
+  left: 27.5%;
+  transform: translate(-50%, -50%);
+}
+
+.bottom_right {
+  bottom: 0;
+  right: 0;
+}
+
+.top_left {
+  top: 0;
+  left: 0;
+}
+
+.top_right {
+  top: 0;
+  right: 0;
+}
+
+.behind {
+  bottom: 0;
+  right: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 105rem;
+  height: 70rem;
+  border-radius: 5rem;
+  background-color: var(--purpleLight);
+  z-index: 2000;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
