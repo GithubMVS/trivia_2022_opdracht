@@ -1,0 +1,51 @@
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 5rem;
+  width: 100%;
+  padding-bottom: 2.5rem;
+}
+
+.buttonLayout {
+  border: none;
+  background-color: var(--colorWhite);
+  border-radius: 2rem;
+  height: 7.5rem;
+  color: var(--purpleLight);
+  font-size: 2rem;
+  line-height: 3rem;
+  font-family: visbyRoundCF;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.buttonLayout:hover {
+  background-color: var(--purpleDark);
+  color: var(--colorWhite);
+}
+
+@media screen and (max-width: 1366px) {
+  .buttonLayout {
+    height: 6.5rem;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+
+  .buttons {
+    grid-gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .buttons {
+    grid-template-columns: 1fr;
+    grid-gap: 4rem;
+  }
+  .buttonLayout {
+    height: 8rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}

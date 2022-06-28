@@ -11,8 +11,10 @@ const QuestionAndAnswers: FC = () => {
 
   return (
     <>
-      <div>{question}</div>
-      <OneAnswer />
+      <p className={styles.question}>{question}</p>
+      <div className={styles.answers}>
+        <OneAnswer />
+      </div>
     </>
   );
 };

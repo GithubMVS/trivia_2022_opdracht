@@ -78,10 +78,12 @@ function App() {
           <p className={styles.title}>Quiz Varia 2022</p>
           <div className={styles.center}>
             <div className={styles.content}>
-              <div>
-                <Score />
+                <div className={styles.score_lives_time}>
+                  <Score />
+                </div>
+                <div className={styles.questionAndAnswers}>
+                  <QuestionAndAnswers />
               </div>
-              <QuestionAndAnswers />
             </div>
           </div>
         </div>

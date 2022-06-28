@@ -49,14 +49,27 @@
 }
 
 .content {
-  display: flex;
+  display: grid;
   justify-content: center;
-  align-items: center;
-  width: 105rem;
-  height: 70rem;
+  grid-template-rows: auto 1fr;
+  width: 65vw;
+  height: 70vh;
   border-radius: 5rem;
   background-color: var(--purpleLight);
   z-index: 2000;
+  padding: 5rem;
+}
+
+.questionAndAnswers {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  width: 50vw;
+}
+
+.score_lives_time {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .center {
@@ -64,4 +77,30 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+@media screen and (max-width: 1366px) {
+  .content {
+    padding: 3rem;
+  }
+
+  .title {
+    font-size: 5rem;
+    padding: 5rem 0rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .questionAndAnswers {
+    width: 55vw;
+  }
+  .content {
+    width: 75vw;
+    height: 75vh;
+  }
+
+  .title {
+    font-size: 6.5rem;
+    padding: 7.5rem 0rem;
+  }
 }

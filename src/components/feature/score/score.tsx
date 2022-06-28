@@ -10,8 +10,8 @@ const Score: FC = () => {
 
   return (
     <div className={styles.totalScore}>
-      <p>points:</p>
-      <p>{score}</p>
+      <p className={styles.points}>points:</p>
+      <p className={styles.score}>{score}</p>
     </div>
   );
 };
