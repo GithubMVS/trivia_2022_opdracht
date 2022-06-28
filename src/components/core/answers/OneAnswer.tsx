@@ -5,12 +5,12 @@ import styles from "../oneQuestion/OneAnswer.module.css";
 import { DataContext } from "../../../Context";
 
 const OneQuestion: FC = () => {
-  const { answers, setAnsweredAnswer } = useContext(DataContext);
+  const { answers, setAnsweredAnswer, handleClickOnAnswer } = useContext(DataContext);
 
   return (
     <>
       {answers.map((answer: string) => (
-        <button onClick={() => setAnsweredAnswer(answer)} key={answer}>
+        <button onClick={() => setAnsweredAnswer(answer) + handleClickOnAnswer()} key={answer}>
           {answer}
         </button>
       ))}

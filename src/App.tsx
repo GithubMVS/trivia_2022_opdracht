@@ -10,6 +10,7 @@ import top_right from "./globals/images/background_images/top_right.svg";
 
 // components
 import QuestionAndAnswers from "./components/core/questionAndAnswers/QuestionAndAnswers";
+import Score from "./components/feature/score/score";
 
 // functions
 import { mergeAnswer } from "./core/utils/converters/mergeAnswers";
@@ -18,10 +19,11 @@ import { mergeAnswer } from "./core/utils/converters/mergeAnswers";
 import { DataContext } from "./Context";
 
 function App() {
-  // states
   const [answeredAnswer, setAnsweredAnswer] = useState<string>("");
   const [answers, setAnswers] = useState<string[]>([]);
   const [question, setQuestion] = useState<string>("");
+  const [rightAnswer, setRightAnswer] = useState<string>("");
+  const [score, setScore] = useState<number>(0);
 
   const fetchOneQuestion = async () => {
     await axios({
@@ -39,10 +41,26 @@ function App() {
 
       // put the queston in a state
       setQuestion(response.data[0].question);
+
+      // fetch the right answer
+      setRightAnswer(answers.correctAnswer);
     });
   };
 
-  // const checkIfAnswerIsCorrect = () => {};
+  // handle score
+  useEffect(() => {
+    if (answeredAnswer === rightAnswer) {
+      setScore(score + 1000);
+    } else {
+      setScore(score + 0);
+    }
+  }, [answeredAnswer]);
+
+  // handle new question
+  const handleClickOnAnswer = async () => {
+    // fetch another question + answer
+    await fetchOneQuestion();
+  };
 
   useEffect(() => {
     fetchOneQuestion();
@@ -55,11 +73,14 @@ function App() {
       <img className={`${styles.absolute} ${styles.top_left}`} src={top_left} alt="top_left" />
       <img className={`${styles.absolute} ${styles.top_right}`} src={top_right} alt="top_right" />
 
-      <DataContext.Provider value={{question, answers, setAnsweredAnswer}}>
+      <DataContext.Provider value={{ question, answers, setAnsweredAnswer, score, handleClickOnAnswer }}>
         <div className={styles.container_full}>
           <p className={styles.title}>Quiz Varia 2022</p>
           <div className={styles.center}>
             <div className={styles.content}>
+              <div>
+                <Score />
+              </div>
               <QuestionAndAnswers />
             </div>
           </div>
