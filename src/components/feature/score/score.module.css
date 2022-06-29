@@ -37,3 +37,23 @@
     font-size: 7.5rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .points {
+    font-size: 3rem;
+  }
+
+  .score {
+    font-size: 6.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .points {
+    font-size: 2rem;
+  }
+  .score {
+    font-size: 5rem;
+    padding-top: 1rem;
+  }
+}

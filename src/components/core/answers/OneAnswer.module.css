@@ -49,3 +49,23 @@
     line-height: 2.5rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .buttons {
+    grid-gap: 2.5rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .buttons {
+    grid-gap: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .buttonLayout {
+    height: 7.5rem;
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+}

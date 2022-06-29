@@ -49,7 +49,7 @@ function App() {
 
   // handle score
   useEffect(() => {
-    if (answeredAnswer === rightAnswer) {
+    if (answeredAnswer === rightAnswer && answeredAnswer.length !== 0) {
       setScore(score + 1000);
     } else {
       setScore(score + 0);
@@ -78,11 +78,11 @@ function App() {
           <p className={styles.title}>Quiz Varia 2022</p>
           <div className={styles.center}>
             <div className={styles.content}>
-                <div className={styles.score_lives_time}>
-                  <Score />
-                </div>
-                <div className={styles.questionAndAnswers}>
-                  <QuestionAndAnswers />
+              <div className={styles.score_lives_time}>
+                <Score />
+              </div>
+              <div className={styles.questionAndAnswers}>
+                <QuestionAndAnswers />
               </div>
             </div>
           </div>

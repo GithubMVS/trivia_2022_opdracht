@@ -104,3 +104,45 @@
     padding: 7.5rem 0rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 4.5rem;
+    padding: 5rem 0rem;
+  }
+
+  .content {
+    width: 85vw;
+    height: 80vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .questionAndAnswers {
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .absolute {
+    display: none;
+  }
+
+  .content {
+    padding: 0rem;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0rem;
+  }
+  .title {
+    display: none;
+  }
+
+  .questionAndAnswers {
+    width: 85vw;
+  }
+
+  .score_lives_time {
+    padding-top: 2.5rem;
+  }
+}
