@@ -53,10 +53,15 @@ function App() {
     });
   };
 
+  // fetches the first question
+  useEffect(() => {
+    fetchOneQuestion();
+  }, []);
+
   // handle score + lives + time
   useEffect(() => {
     // handle lives + score when answering
-    if (answeredAnswer === rightAnswer) {
+    if (answeredAnswer === rightAnswer && answeredAnswer.length !== 0) {
       setScore(score + 1000);
     } else {
       setScore(score + 0);
@@ -76,17 +81,13 @@ function App() {
   if (timeToAnswer < 1) {
     setLives(lives - 1);
     setTimeToAnswer(timerAmount);
+    fetchOneQuestion();
   }
 
   // handle's fetching a new question
   const handleClickOnAnswer = async () => {
     await fetchOneQuestion();
   };
-
-  // fetches the first question
-  useEffect(() => {
-    fetchOneQuestion();
-  }, []);
 
   // handles timer
   useEffect(() => {
