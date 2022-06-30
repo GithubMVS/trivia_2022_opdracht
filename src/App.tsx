@@ -52,7 +52,7 @@ function App() {
   // handle score + lives
   useEffect(() => {
     // handle lives + score when answering
-    if (answeredAnswer === rightAnswer && answeredAnswer.length !== 0) {
+    if (answeredAnswer === rightAnswer) {
       setScore(score + 1000);
     } else {
       setScore(score + 0);
@@ -60,8 +60,8 @@ function App() {
     }
   }, [answeredAnswer]);
 
-  // handle lives when answering wrong (dit niet in de useEffect zetten)
   if (lives < 1) {
+    // handles lives when answering wrong
     setScore(0);
     setLives(5);
   }
