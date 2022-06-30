@@ -60,18 +60,18 @@ function App() {
     }
   }, [answeredAnswer]);
 
+  // handles lives you answer 5x wrong
   if (lives < 1) {
-    // handles lives when answering wrong
     setScore(0);
     setLives(5);
   }
 
-  // handle new question
+  // handle's fetching a new question
   const handleClickOnAnswer = async () => {
-    // fetch another question + answer
     await fetchOneQuestion();
   };
 
+  // fetches the first question
   useEffect(() => {
     fetchOneQuestion();
   }, []);
