@@ -1,0 +1,25 @@
+.lives_container {
+  display: grid;
+  justify-content: flex-end;
+  width: 100%;
+  grid-template-columns: 1fr auto;
+}
+
+.lives_text {
+  font-size: 4rem;
+  color: var(--colorWhite);
+  font-family: visbyRoundCF;
+  font-weight: 900;
+  padding-right: 1.5rem;
+  text-align: end;
+}
+
+@media screen and (max-width: 500px) {
+  .lives_text {
+    font-size: 3rem;
+  }
+  .lives_image {
+    height: 3.5rem;
+    width: 4rem;
+  }
+}
