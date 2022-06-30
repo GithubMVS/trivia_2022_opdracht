@@ -60,10 +60,14 @@ function App() {
 
   // handle score + lives + time
   useEffect(() => {
+    const notAnswered: boolean = answeredAnswer.length !== 0;
+
     // handle lives + score when answering
-    if (answeredAnswer === rightAnswer && answeredAnswer.length !== 0) {
+    if (answeredAnswer === rightAnswer && notAnswered) {
       setScore(score + 1000);
-    } else {
+    }
+
+    if (answeredAnswer !== rightAnswer && notAnswered) {
       setScore(score + 0);
       setLives(lives - 1);
     }
