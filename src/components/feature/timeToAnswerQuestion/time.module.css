@@ -1,0 +1,25 @@
+.timer_container {
+  display: grid;
+  justify-content: flex-end;
+  width: 100%;
+  grid-template-columns: auto 1fr;
+}
+
+.timer_text {
+  font-size: 4rem;
+  color: var(--colorWhite);
+  font-family: visbyRoundCF;
+  font-weight: 900;
+  padding-left: 1.5rem;
+  text-align: start;
+}
+
+@media screen and (max-width: 500px) {
+  .timer_text {
+    font-size: 3rem;
+  }
+  .timer_image {
+    height: 3.5rem;
+    width: 4rem;
+  }
+}

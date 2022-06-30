@@ -12,6 +12,7 @@ import top_right from "./globals/images/background_images/top_right.svg";
 import QuestionAndAnswers from "./components/core/questionAndAnswers/QuestionAndAnswers";
 import Score from "./components/feature/score/score";
 import Lives from "./components/feature/lives/life";
+import Time from "./components/feature/timeToAnswerQuestion/time";
 
 // functions
 import { mergeAnswer } from "./core/utils/converters/mergeAnswers";
@@ -26,6 +27,9 @@ function App() {
   const [rightAnswer, setRightAnswer] = useState<string>("");
   const [score, setScore] = useState<number>(0);
   const [lives, setLives] = useState<number>(5);
+  const [timeToAnswer, setTimeToAnswer] = useState<number>(20);
+
+  const timerAmount: number = 20;
 
   const fetchOneQuestion = async () => {
     await axios({
@@ -49,7 +53,7 @@ function App() {
     });
   };
 
-  // handle score + lives
+  // handle score + lives + time
   useEffect(() => {
     // handle lives + score when answering
     if (answeredAnswer === rightAnswer) {
@@ -58,12 +62,20 @@ function App() {
       setScore(score + 0);
       setLives(lives - 1);
     }
+
+    setTimeToAnswer(timerAmount);
   }, [answeredAnswer]);
 
   // handles lives you answer 5x wrong
   if (lives < 1) {
     setScore(0);
     setLives(5);
+  }
+
+  // handles when timer goes below 1
+  if (timeToAnswer < 1) {
+    setLives(lives - 1);
+    setTimeToAnswer(timerAmount);
   }
 
   // handle's fetching a new question
@@ -76,6 +88,15 @@ function App() {
     fetchOneQuestion();
   }, []);
 
+  // handles timer
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeToAnswer(timeToAnswer - 1);
+    }, 1000);
+
+    return () => clearInterval(interval); //clear your interval to prevent memory leaks.
+  }, [timeToAnswer]);
+
   return (
     <>
       <img className={`${styles.absolute} ${styles.behind}`} src={behind} alt="behind" />
@@ -83,13 +104,13 @@ function App() {
       <img className={`${styles.absolute} ${styles.top_left}`} src={top_left} alt="top_left" />
       <img className={`${styles.absolute} ${styles.top_right}`} src={top_right} alt="top_right" />
 
-      <DataContext.Provider value={{ question, answers, setAnsweredAnswer, score, handleClickOnAnswer, lives }}>
+      <DataContext.Provider value={{ question, answers, setAnsweredAnswer, score, handleClickOnAnswer, lives, timeToAnswer }}>
         <div className={styles.container_full}>
           <p className={styles.title}>Quiz Varia 2022</p>
           <div className={styles.center}>
             <div className={styles.content}>
               <div className={styles.score_lives_time}>
-                <p>tijd</p>
+                <Time />
                 <Score />
                 <Lives />
               </div>
